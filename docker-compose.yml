@@ -17,13 +17,6 @@ services:
     cap_add:
       - ALL
     privileged: true
-    deploy:
-      mode: global
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
-        window: 120s
     volumes:
       - esdata1:/usr/share/elasticsearch/data
     ports:
@@ -46,13 +39,6 @@ services:
     cap_add:
       - ALL
     privileged: true
-    deploy:
-      mode: global
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
-        window: 120s
     volumes:
       - esdata2:/usr/share/elasticsearch/data  
   kibana:
@@ -60,7 +46,7 @@ services:
     container_name: kibana
     environment:
       SERVER_NAME: localhost
-      ELASTICSEARCH_URL: http://localhost:9200/
+      ELASTICSEARCH_URL: http://elasticsearch:9200/
     ports:
       - 5601:5601
     ulimits:
