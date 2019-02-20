@@ -15,6 +15,9 @@ services:
   kibana:
     container_name: kibana
     image: docker.elastic.co/kibana/kibana:6.6.1
+    environment:
+        - ELASTICSEARCH_USERNAME=elasticsearch
+        - ELASTICSEARCH_PASSWORD=elastic
     ports:
       - "5601:5601"
     links:
