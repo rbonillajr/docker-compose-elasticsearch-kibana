@@ -45,7 +45,7 @@ services:
     image: docker.elastic.co/kibana/kibana-oss:6.6.0
     container_name: kibana
     environment:
-      SERVER_NAME: localhost
+      SERVER_NAME: elasticsearch
       ELASTICSEARCH_URL: http://localhost:9200/
     ports:
       - 5601:5601
